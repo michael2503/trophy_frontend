@@ -1,0 +1,29 @@
+@import '../../../../theme/colors.scss';
+#callToAction {
+    background: #f9f9f9;
+    padding: 75px 0;
+    text-align: center;
+    h3 {
+        font-size: 36px;
+        font-weight: bold;
+    }
+    .centered {
+        max-width: 534px;
+        margin: auto;
+    }
+    p {
+        margin-bottom: 30px;
+    }
+    a {
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 138px;
+        height: 37px;
+        color: #fff;
+        background-color: $secondary;
+        border-radius: 100px;
+        font-weight: 600;
+    }
+}

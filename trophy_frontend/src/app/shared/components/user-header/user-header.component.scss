@@ -1,0 +1,85 @@
+@import '../../../../theme/colors.scss';
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    border-bottom: 1px solid #4a4a4a26;
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 20;
+}
+
+.showSideBar {
+    display: none;
+    flex-direction: column;
+    height: 22px;
+    width: 25px;
+    min-width: 25px;
+    cursor: pointer;
+    justify-content: space-around;
+    span {
+        border-top: 3px solid #fff;
+    }
+}
+
+h3 {
+    font-size: 22px;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+[class$="Part"] {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 850px) {
+    .showSideBar {
+        display: flex;
+    }
+    header {
+        height: 60px !important;
+    }
+    .showSideBar {
+        height: 17px !important;
+        width: 22px !important;
+        min-width: 22px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 0 15px;
+    }
+}
+
+#success {
+    .successCont {
+        svg {
+            margin-bottom: 39px;
+        }
+        h4 {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 18px;
+        }
+        p {
+            font-size: 14px;
+        }
+    }
+    button {
+        width: 100% !important;
+        margin-top: 60px;
+    }
+}
+
+#error {
+    i {
+        font-size: 60px;
+        margin-bottom: 30px;
+        color: brown;
+    }
+}

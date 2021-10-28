@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div id="staticPage">
+    <app-loading *ngIf="isLoading"></app-loading>
+    <div class="bodyCont">
+        <div *ngIf="pageContents" class="Privacy containerMe pt-5">
+            <h1 class="marg fontS-4 fontW-3">{{pageContents?.title}}</h1>
+            <div class="border marg"></div>
+
+            <div class="lastUpdate">
+                <div class="date marg pt-5">
+                    <span class="font-weight-bold"> Last updated: {{pageContents?.updated_at | date}}.</span>
+
+                </div>
+                <div class="info lineH-2 mb-5" [innerHTML]="pageContents?.contents | safeHtml"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

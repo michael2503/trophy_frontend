@@ -1,0 +1,225 @@
+<input type="checkbox" id="drawer-toggle" name="drawer-toggle" />
+<label for="drawer-toggle" id="drawer-toggle-label"></label>
+<header class="admin-header">
+    <app-admin-header></app-admin-header>
+</header>
+
+<nav id="drawer">
+    <app-admin-nav-content></app-admin-nav-content>
+</nav>
+
+<div id="pageContents">
+    <div id="adminWrapper">
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item">
+                                        <a routerLink="/">Home</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        Administrator
+                                    </li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">
+                                Welcome, {{adm && adm.username | titlecase}}
+                                <span style="font-weight: lighter; font-size: 20px;">
+                      ({{adm && adm.full_name}})
+                    </span>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="AllNotive">
+
+                    <!-- unread support -->
+                    <div *ngIf="unreadSupport" class="mb-3">
+                        <div *ngFor="let sup of unreadSupport" class="alert alert-success">
+                            {{sup?.first_name}} {{sup?.last_name}} sent a message. <a routerLink="/{{adminUrl}}/support-manager"><b>View Now</b></a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <section class="dashboard">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4">
+                            <div class="card card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div class="no_user">
+                                        <i class="fa fa-users grid-icon icon-col-1"></i>
+                                    </div>
+                                    <div class="no_user mt-4">
+                                        <h4>{{allUser | number}}</h4>
+                                        <p>All User</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4">
+                            <div class="card card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div class="no_user">
+                                        <i class="fa fa-user-md grid-icon icon-col-3"></i>
+                                    </div>
+                                    <div class="no_user mt-4">
+                                        <h4>{{activeUser | number}}</h4>
+                                        <p>Active Users</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4">
+                            <div class="card card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div class="no_user">
+                                        <i class="fa fa-user-times grid-icon icon-col-4"></i>
+                                    </div>
+                                    <div class="no_user mt-4">
+                                        <h4>{{blockSuspUsers | number}}</h4>
+                                        <p>Blocked User</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4">
+                            <div class="card card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div class="no_user">
+                                        <i class="fa fa-database grid-icon icon-col-2"></i>
+                                    </div>
+                                    <div class="no_user mt-4">
+                                        <h4>
+                                            {{susUser | number}}</h4>
+                                        <p>Suspended User</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="mt-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card card-box">
+                                <div class="card-header p-0">
+                                    <h4 class="header-title">
+                                        Recently Signup User
+                                        <a routerLink="/{{adminUrl}}/investor-manager" class="float-right">See all</a>
+                                    </h4>
+                                </div>
+                                <div class="table-responsive-sm recent-overflow">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Signup Date</th>
+                                                <th>Status</th>
+                                                <th>View</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let customer of recentUser; let i = index;">
+                                                <td> {{ i + 1 }}</td>
+                                                <td>
+                                                    <a routerLink="/{{adminUrl}}/investor-manager/details/{{customer.id}}">
+                                                        {{customer.first_name | titlecase}} 
+                                                        {{customer.last_name | titlecase}}
+                                                    </a>
+                                                </td>
+                                                <td>{{customer.created_at | date}}</td>
+                                                <td class="text-center">
+                                                    <span *ngIf="customer.status === 'Active'" class="badge badge-success">Active</span>
+
+                                                    <span *ngIf="customer.status === 'Pending'" class="badge badge-primary">Pending</span>
+
+                                                    <span *ngIf="customer.status === 'Suspended'" class="badge badge-warning">Suspended</span>
+
+                                                    <span *ngIf="customer.status === 'Blocked'" class="badge badge-danger">Blocked</span>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-primary text-white" routerLink="/{{adminUrl}}/investor-manager/details/{{customer.id}}">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+
+
+                <section class="mt-5">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="card card-box">
+                                <h4 class="header-title mb-3">Vendor's Information</h4>
+                                <ul class="list-group vendor">
+                                    <li class="list-group-item">
+                                        Developer Name: <span> {{vendorInfo && vendorInfo.name}}</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Website:
+                                        <span> 
+                                            <a href="{{vendorInfo && vendorInfo.website}}" target="_blank"> 
+                                            {{vendorInfo && vendorInfo.website}}
+                                            </a>
+                                        </span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Date Relesed:
+                                        <span>{{vendorInfo && vendorInfo.version_date | date}}</span>
+
+                                        <small class="float-right">
+                                            Version <span>{{vendorInfo && vendorInfo.curr_version}}</span>
+                                        </small>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6">
+                            <div class="card card-box">
+                                <h4 class="header-title mb-3">Client Information</h4>
+                                <ul class="list-group vendor">
+                                    <li class="list-group-item">
+                                        Client Name: <span>{{clientInfo && clientInfo.name}}</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Server: <span>{{clientInfo && clientInfo.server}}</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Server IP Address: <span>{{clientInfo && clientInfo.ip}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <app-admin-footer></app-admin-footer>
+</div>

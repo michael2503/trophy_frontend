@@ -1,0 +1,175 @@
+<input type="checkbox" id="drawer-toggle" name="drawer-toggle" />
+<label for="drawer-toggle" id="drawer-toggle-label"></label>
+<header class="admin-header">
+    <app-admin-header></app-admin-header>
+</header>
+
+<nav id="drawer">
+    <app-admin-nav-content></app-admin-nav-content>
+</nav>
+
+<div id="pageContents">
+    <div id="adminWrapper">
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-xl-2 col-lg-2 col-md-3">
+                        <app-support-manager-menu></app-support-manager-menu>
+                    </div>
+
+                    <div class="col-xl-10 col-lg-10 col-md-9">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item">
+                                                <a routerLink="/{{adminUrl}}">
+													Dashboard
+												</a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a routerLink="/{{adminUrl}}/support-manager">
+													Supports
+												</a>
+                                            </li>
+                                            <li class="breadcrumb-item active">
+                                                <span>
+													Support
+												</span>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <h4 class="page-title">
+                                        <span>
+											Support
+										</span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div id="donations">
+                            <div class="card card-body">
+                                <div class="mainSup">
+                                    <div class="head-side">
+                                        <h5>{{support?.subject}}</h5>
+                                        <p class="mb-0"><small><i>{{support?.created_at | date}}</i></small></p>
+                                    </div>
+                                    <div>{{support?.contents}}</div>
+                                    <div class="d-flex justify-content-between mt-3">
+                                        <div *ngIf="support?.image">
+                                            <a href="{{support?.image}}" target="_blank" class="text-dark"><small><b>View Attachment</b></small></a>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-primary btn-sm" [openModal]="composeSup">Reply</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div *ngIf="supportReply.length">
+                                    <div class="newsHead" style="margin-top: 80px; padding-bottom: 5px;">
+                                        <h5 class="mb-0">Response</h5>
+                                    </div>
+                                    <div *ngFor="let resp of supportReply" class="card card-footer p-2">
+                                        <div class="head-side">
+                                            <h5>{{resp?.subject}}</h5>
+                                            <p class="mb-0"><small><i>{{resp?.created_at |date: 'fullDate'}}</i></small></p>
+                                        </div>
+                                        <div>{{resp?.contents}}</div>
+                                        <div class="d-flex justify-content-between mt-3">
+                                            <div *ngIf="resp?.image">
+                                                <a href="{{resp?.image}}" target="_blank" class="text-dark"><small><b>View Attachment</b></small></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <app-admin-footer></app-admin-footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div id="modals">
+    <app-modal #composeSup [closeModal]="closeModal">
+        <div class="modalContent">
+            <div class="modalHead">
+                <span class="closeBtn">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.5"
+                            d="M12.026 0L7 5.026L1.974 0L0 1.974L5.026 7L0 12.026L1.974 14L7 8.974L12.026 14L14 12.026L8.974 7L14 1.974L12.026 0Z"
+                            fill="#494949" />
+                    </svg>
+                </span>
+            </div>
+
+            <div class="modalBody">
+                <div class="formBody">
+                    <div class="successCont">
+                        <div class="text-center mb-4">
+                            <h5>Reply</h5>
+                        </div>
+                        <form [formGroup]="form" (ngSubmit)="submit()">
+
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" class="form-control" formControlName="subject">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea class="form-control" formControlName="contents"></textarea>
+                            </div>
+
+                            <label>Attachment</label>
+                            <div class="alert alert-danger mt-2" *ngIf="fileUploadError">
+                                {{fileUploadError}}
+                            </div>
+                            <div class="adminUpload">
+                                <div class="uploadWrapper text-center mb-4" style="position: relative;">
+                                    <div *ngIf="theUploaded" class="deleteImg" (click)="removeUploadImg()">
+                                        <i class="fa fa-trash"></i>
+                                    </div>
+                                    <label *ngIf="removeLabel" class="uploadLabel" for="uploadFile">
+                                            <i class="fa fa-upload uploadIcon"></i>
+                                            <p>Click here to upload file</p>
+                                        </label>
+                                    <input type="text" formControlName="image" hidden>
+                                    <input type="file" hidden class="form-control" id="uploadFile" name="uploadFile" (change)="onSelectedFile($event)">
+
+                                    <div *ngIf="uploadingProgress > 0" class="progress uploadProgress">
+                                        <span class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"> 
+                                            Uploading...{{ uploadingProgress }}%
+                                            </span>
+                                    </div>
+
+                                    <img *ngIf="theUploaded" src="{{theUploaded}}" class="uploaded">
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button *ngIf="!isAdding" type="submit" class="btn btn-primary">Reply to Support</button>
+                                <button *ngIf="isAdding" class="btn btn-primary" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" 
+                                    role="status" aria-hidden="true"></span>
+                                    Replying...
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </app-modal>
+</div>

@@ -1,0 +1,195 @@
+@import '../../../../theme/colors.scss';
+#bodyPart {
+    display: flex;
+    min-height: calc(100vh - 80px);
+}
+
+aside {
+    position: sticky;
+    height: calc(100vh - 80px);
+    top: 80px;
+    flex-grow: 1;
+    max-width: 270px;
+    min-width: 270px;
+    padding-top: 50px;
+    background: #00923f;
+    padding-left: 20px;
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+    ul {
+        margin: 0;
+        list-style-type: none;
+        padding: 0;
+        a {
+            padding: 15px 0 15px 25px;
+            position: relative;
+            display: flex;
+            color: #fff;
+            font-size: 14px;
+            align-items: center;
+            // color: #494949;
+            span {
+                margin-left: 10px;
+                font-weight: bold;
+                flex-grow: 1;
+            }
+            i {
+                font-size: 20px;
+            }
+            path {
+                fill: #fff;
+                stroke: #fff;
+                stroke-width: 25px;
+            }
+            .curve {
+                position: absolute;
+                right: 0;
+                top: 0;
+                display: none;
+                transform: translateY(-100%);
+                background: #fff;
+                width: 60px;
+                height: 32px;
+                &::after {
+                    position: absolute;
+                    background: $primary;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 0 0 100px 0;
+                    content: '';
+                }
+            }
+            .curve:nth-child(2) {
+                top: 100%;
+                transform: none;
+                &::after {
+                    border-radius: 0 100px 0 0;
+                }
+            }
+        }
+        a:not(.activeLink) {
+            position: relative;
+            z-index: 50;
+        }
+        a.activeLink {
+            background: #fff;
+            color: #494949;
+            border-radius: 100px 0 0 100px;
+            .curve {
+                display: block;
+            }
+            path {
+                fill: #494949;
+                stroke: #494949;
+            }
+        }
+    }
+    @media (max-width: 600px) {
+        & {
+            min-width: 60px;
+            max-width: 60px;
+            padding-left: 10px;
+            ul {
+                a {
+                    padding: 15px 0 15px 15px;
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+form {
+    button,
+     ::ng-deep button {
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff !important;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: $secondary;
+        border-radius: 100px;
+        width: 100%;
+        margin-bottom: 48px;
+        margin-top: 80px;
+    }
+    button:focus,
+     ::ng-deep button:focus {
+        box-shadow: none;
+    }
+}
+
+#mainContent {
+    flex-grow: 1;
+}
+
+.innerCont {
+    max-width: 700px;
+    margin: auto;
+    padding: 80px 15px;
+}
+
+.headTitle {
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #4a4a4a26;
+}
+
+.imgTxtInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    img {
+        width: 92%;
+        border-radius: 50%;
+    }
+    .imgCont {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border-radius: 50%;
+        // overflow: hidden;
+        width: 150px;
+        min-width: 150px;
+        height: 150px;
+        background-color: #fff;
+        margin-right: 20px;
+        box-shadow: 0 0 15px #c0c0c05e;
+        .edit {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            transform: translate(-30%, -30%);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            background-color: $secondary;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .imgTxtInfo {
+        display: block !important;
+    }
+    .txtCont {
+        margin-top: 20px !important;
+        h4 {
+            font-size: 18px !important;
+        }
+    }
+}

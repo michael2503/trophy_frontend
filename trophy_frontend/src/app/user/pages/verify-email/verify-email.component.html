@@ -1,0 +1,27 @@
+<div class="authPage" style="background-image: url(assets/images/authlinebg.png);">
+    <a class="logo" routerLink="/">
+        <img src="assets/images/logo.svg" alt="">
+    </a>
+    <div class="centeredCont">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <h4>Email Verification</h4>
+            <div *ngIf="successSent" class="alert alert-success">A verification code has been successfully resent to your email</div>
+            <div class="formGroup">
+                <label for="">Verification Code</label>
+                <input type="text" [class.error]="(email_code?.touched && email_code?.invalid) || codeErr" class="form-control" formControlName="email_code" placeholder="Enter the verification code sent to your email">
+                <div *ngIf="email_code?.touched && email_code?.invalid" class="errDisp">*This field is required!</div>
+                <div *ngIf="codeErr" class="errDisp">*{{codeErr}}</div>
+            </div>
+
+            <button *ngIf="!submitting" class="btn" [disabled]="form?.invalid">Verify Email</button>
+            <app-loading-btn *ngIf="submitting" clss="btn"></app-loading-btn>
+            <div class="altAuth">
+                <span>You haven't received the sms code yet?</span>
+                <a *ngIf="!resending" href="javascript:void(0)" (click)="resend()">Resend</a>
+                <a *ngIf="resending" href="javascript:void(0)">Resending...</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="copyright">Copyright © {{curYear}} Trophy Team. All right reserved </div>
+</div>

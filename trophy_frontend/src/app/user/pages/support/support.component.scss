@@ -1,0 +1,104 @@
+@import '../dashboard/dashboard.component.scss';
+.no-support {
+    font-size: 50px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.role-wrap {
+    background: $primary;
+    ul li.activeLink {
+        padding: 7px 10px;
+        background: #fff;
+        margin: 5px 1px 0px 12px;
+        color: #000 Im !important;
+    }
+    ul li {
+        padding: 7px 10px;
+        margin: 5px 1px 0px 12px;
+        cursor: pointer;
+    }
+    ul li a {
+        color: #fff !important;
+    }
+    ul li a.activeLink {
+        color: #000 !important;
+    }
+    .composeBtn {
+        margin-top: 6px;
+        margin-right: 10px;
+        button {
+            background: #fff !important;
+            color: #000 !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    ul li {
+        padding: 7px 5px !important;
+        margin: 5px 1px 0px 5px !important;
+    }
+    ul li a {
+        font-size: 14px;
+    }
+}
+
+.fileUpload {
+    // margin-top: 20px;
+    label {
+        width: 100%;
+        cursor: pointer;
+        height: 83px;
+        margin: 0;
+        border: 1px dashed rgba(66, 68, 69, 0.15);
+        border-radius: 5px;
+        .nofile {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            height: 100%;
+            span {
+                opacity: 0.65;
+                color: #494949;
+            }
+        }
+        .imgCont {
+            position: relative;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+            .progress {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000000af;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 7;
+            }
+        }
+    }
+}
+
+.texbox {
+    border-radius: 0px !important;
+    height: 150px;
+    padding: 5px;
+}
+
+.primBtnOutline {
+    min-width: 30px;
+    height: 30px;
+}

@@ -1,0 +1,47 @@
+@import '../../../../theme/colors.scss';
+#introSec {
+    background: $primary;
+    padding: 100px 0;
+    color: #fff;
+    text-align: center;
+    h3 {
+        max-width: 700px;
+        margin: auto;
+    }
+}
+
+.testimonial-title {
+    color: #000;
+}
+
+.testimonial-title small {
+    color: #000;
+}
+
+#callToAction {
+    background: #f9f9f9;
+    padding: 75px 0;
+    h3 {
+        font-size: 36px;
+        font-weight: bold;
+    }
+    .centered {
+        max-width: 534px;
+        margin: auto;
+    }
+    p {
+        margin-bottom: 30px;
+    }
+    a {
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 138px;
+        height: 37px;
+        color: #fff;
+        background-color: $secondary;
+        border-radius: 100px;
+        font-weight: 600;
+    }
+}

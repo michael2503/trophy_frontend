@@ -1,0 +1,75 @@
+<app-page-loader *ngIf="loading"></app-page-loader>
+<div id="userPage">
+    <app-user-sidemenu></app-user-sidemenu>
+    <main>
+        <div class="userInfo" style="background-image: url(assets/images/linebg.png);">
+            <div class="userImgCont">
+                <svg>
+                    <circle cx="56.5" cy="56.5" r="55.5" stroke="#fff" stroke-width="1"></circle>
+                </svg>
+                <img *ngIf="auth?.photo" src="{{treatImgUrl(auth?.photo)}}" alt="">
+                <img *ngIf="!auth?.photo" src="assets/images/picture.png" alt="">
+            </div>
+            <div class="balance">
+                <div class="txt">{{auth?.first_name}} {{auth?.last_name}}</div>
+                <div class="txt"><small>{{auth?.username}}</small></div>
+            </div>
+            <div class="actionsCont">
+                <a routerLink="/user/settings">Edit Profile</a>
+                <a routerLink="/user/settings/change-password">Change Password</a>
+            </div>
+        </div>
+
+
+
+        <div id="mainCont" class="mb-5">
+            <app-user-header pageTitle="Dashboard"></app-user-header>
+            <section id="bodyPart">
+                <div *ngIf="unreadSupportsCount">
+                    <div *ngFor="let supp of unreadSupports" class="alert alert-success m-2">
+                        You have a new message <span class="ml-1"><a routerLink="/user/support"><b>View</b></a></span>
+                    </div>
+                </div>
+
+                <div class="card card-body m-3">
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>First Name</div>
+                        <div><b>{{auth?.first_name}}</b></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>Last Name</div>
+                        <div><b>{{auth?.last_name}}</b></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>Email</div>
+                        <div><b>{{auth?.email}}</b></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>Username</div>
+                        <div><b>{{auth?.username}}</b></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>Phone Number</div>
+                        <div><b>{{auth?.phone}}</b></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4">
+                        <div>Signup Date</div>
+                        <div><b>{{auth?.created_at | date}}</b></div>
+                    </div>
+
+                    <div class="interest mt-4">
+                        <h4>Interest</h4>
+                        <ul class="list-inline interestList">
+                            <li *ngFor="let int of theInt" class="list-inline-item dataa mb-3">{{int}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>

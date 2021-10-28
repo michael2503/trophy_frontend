@@ -1,0 +1,39 @@
+<app-header></app-header>
+<section id="introSec" style="background-image: url(assets/images/linebg.png)">
+    <div class="bodyCont">
+        <h3>These are some stories of Trophy Team who love to become a champiom</h3>
+    </div>
+</section>
+
+
+<section id="callToAction" style="background-image: url(assets/images/linegrey.png);">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngFor="let test of testimonials" class="col-xl-4">
+                <div class="testimonial">
+                    <div class="testimonial-review">
+                        <p>
+                            "{{test?.testimony}}"
+                        </p>
+                    </div>
+                    <div class="pic">
+                        <img *ngIf="!test?.photo" src="assets/images/picture.png" alt="">
+                        <img *ngIf="test?.photo" src="{{test?.photo}}" alt="">
+
+                        <h4 class="testimonial-title">{{test?.first_name}} {{test?.last_name}}
+                            <small>World Best Player</small>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+
+
+<app-footer></app-footer>

@@ -1,0 +1,108 @@
+@import '../../../../theme/colors.scss';
+.userInfo {
+    max-width: 384px;
+    flex-grow: 1;
+    width: 320px;
+    background-color: $primary;
+    color: #fff;
+    padding: 57px 32px 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .userImgCont {
+        width: 113px;
+        height: 113px;
+        // border: 1px dashed #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        position: relative;
+        margin-bottom: 29px;
+        svg {
+            width: 100%;
+            height: 100%;
+            circle {
+                stroke-dasharray: 8px 6px;
+                fill: none;
+            }
+        }
+        img {
+            width: 90%;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+    }
+    .balance {
+        text-align: center;
+        margin-bottom: 46px;
+        .txt {
+            font-size: 18px;
+        }
+        h3 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    }
+    .actionsCont {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        width: 100%;
+        max-width: 208px;
+        margin-bottom: 50px;
+        a {
+            height: 47px;
+            border-radius: 4px;
+            color: $primary;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            justify-content: center;
+            white-space: nowrap;
+        }
+        a:last-child {
+            color: #fff;
+            border: 1px solid #fff;
+            background: $primary;
+        }
+    }
+    .cardCont {
+        .eachCard {
+            margin-bottom: 19px;
+        }
+    }
+}
+
+#mainCont {
+    width: 620px !important;
+}
+
+@media (max-width: 1216px) {
+    .userInfo {
+        display: none;
+    }
+    #mainCont {
+        width: 200px !important;
+    }
+}
+
+.interestList {
+    margin-top: 20px;
+    .dataa {
+        background: #fff;
+        color: $primary;
+        padding: 3px 10px;
+        cursor: pointer;
+        border: 2px solid $primary;
+        border-radius: 4px;
+    }
+    .custom-control-input:checked~.custom-control-label::before {
+        border-color: $primary;
+        background-color: $primary;
+    }
+}

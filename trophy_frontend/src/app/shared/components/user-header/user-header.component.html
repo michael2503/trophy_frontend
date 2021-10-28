@@ -1,0 +1,113 @@
+<header #hd>
+    <div class="leftPart">
+        <!-- <div class="showSideBar" (click)="showSideMenu(hd)">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div> -->
+        <h3>{{pageTitle}}</h3>
+    </div>
+
+</header>
+
+
+<section id="mobileFooterNav">
+    <div class="">
+        <div class="d-flex justify-content-between">
+            <div class="text-center">
+                <div class="navLink">
+                    <a routerLink="/">
+                        <i class="fa fa-home"></i>
+                        <p class="mb-0">Home</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="navLink">
+                    <a routerLink="/user">
+                        <i class="fa fa-dashboard"></i>
+                        <p class="mb-0">Dashboard</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="navLink">
+                    <a routerLink="/user/settings">
+                        <i class="fa fa-cogs"></i>
+                        <p class="mb-0">Settings</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="navLink" (click)="showSideMenu(hd)">
+                    <a>
+                        <div class="showSideBar mr-0">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <p class="mb-0 menu-p">Menu</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div #successOpener [openModal]="success"></div>
+<div #errorOpener [openModal]="errorModal"></div>
+<app-modal #success [closeModal]="closeModal" (onClose)="modalClose()">
+    <div class="modalContent" id="success">
+        <div class="modalHead">
+            <span #closeM class="closeBtn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.5"
+                        d="M12.026 0L7 5.026L1.974 0L0 1.974L5.026 7L0 12.026L1.974 14L7 8.974L12.026 14L14 12.026L8.974 7L14 1.974L12.026 0Z"
+                        fill="#494949" />
+                </svg>
+            </span>
+        </div>
+        <div class="modalBody">
+            <div class="formBody text-center">
+                <div class="successCont">
+                    <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M29.5003 0.000370171C45.7926 0.000370171 59.0002 13.208 59.0002 29.5003C59.0002 45.7926 45.7926 59.0002 29.5003 59.0002C13.208 59.0002 0.000366503 45.7926 0.000366503 29.5003C-0.0459923 13.2542 13.0864 0.046729 29.3323 0.000370171C29.3883 0.00020976 29.4443 0.00020976 29.5003 0.000370171Z"
+                            fill="#28B446" />
+                        <path
+                            d="M45.8425 21.3708L24.8909 42.3224L13.158 30.6733L17.935 25.9802L24.8909 32.8523L41.0656 16.6776L45.8425 21.3708Z"
+                            fill="white" />
+                    </svg>
+                    <h4>{{successMsg?.title}}</h4>
+                    <p>{{successMsg?.body}}</p>
+                </div>
+            </div>
+            <button class="secBtn" (click)="closeM.click()">Ok</button>
+        </div>
+    </div>
+</app-modal>
+<app-modal #errorModal [closeModal]="closeModal" (onClose)="errorClose()">
+    <div class="modalContent" id="error">
+        <div class="modalHead">
+            <span #closeM class="closeBtn">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.5"
+                        d="M12.026 0L7 5.026L1.974 0L0 1.974L5.026 7L0 12.026L1.974 14L7 8.974L12.026 14L14 12.026L8.974 7L14 1.974L12.026 0Z"
+                        fill="#494949" />
+                </svg>
+            </span>
+        </div>
+        <div class="modalBody">
+            <div class="formBody text-center">
+                <div class="errorCont">
+                    <i class="fa fa-exclamation-triangle"></i>
+                    <h4>Error</h4>
+                    <p>{{errorMsg}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-modal>

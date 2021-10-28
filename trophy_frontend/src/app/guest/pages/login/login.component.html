@@ -1,0 +1,41 @@
+<div class="authPage" style="background-image: url(assets/images/authlinebg.png);">
+    <a class="logo" routerLink="/">
+        <img *ngIf="logoUrl" src="{{treatImgUrl(logoUrl)}}" alt="logo">
+        <img *ngIf="!logoUrl" src="assets/images/logo.svg" alt="logo">
+    </a>
+    <div *ngIf="true" class="centeredCont">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <h4>Login to your account</h4>
+            <div #userGroup class="formGroup">
+                <label for="">Email/Phone</label>
+                <input type="text" [class.error]="(user?.touched && user?.invalid) || userErr" class="form-control" formControlName="user" placeholder="e.g. Johndoe@mail.com / 08100472855">
+                <div *ngIf="user?.touched && user?.invalid" class="errDisp">*This field is required!</div>
+                <div *ngIf="userErr" class="errDisp">*{{userErr}}</div>
+            </div>
+            <div #passGroup class="formGroup">
+                <label for="">Password</label>
+                <input type="password" class="form-control" [class.error]="(password?.touched && password?.invalid) || passErr" formControlName="password" placeholder="Enter your password">
+                <div *ngIf="password?.touched && password?.invalid" class="errDisp">*This field is required!</div>
+                <div *ngIf="passErr" class="errDisp">*{{passErr}}</div>
+            </div>
+            <div class="d-flex justify-content-between rememberForgot">
+                <div class="rememberMe">
+                    <input type="checkbox" id="remember" hidden>
+                    <label for="remember">
+                        <div class="cusCheck">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <span>Remember Me</span>
+                    </label>
+                </div>
+                <a routerLink="/forgot-password" class="forgotP">Forgot Password?</a>
+            </div>
+            <button *ngIf="!submitting" class="btn" [disabled]="form?.invalid">Login</button>
+            <app-loading-btn *ngIf="submitting" clss="btn"></app-loading-btn>
+            <div class="altAuth">Don’t have an account? <a routerLink="/register">Register</a></div>
+        </form>
+    </div>
+
+
+    <div class="copyright">Copyright © {{curYear}} Trophy Team. All right reserved </div>
+</div>

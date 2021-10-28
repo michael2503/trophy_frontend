@@ -1,0 +1,55 @@
+@import '../../../../theme/colors.scss';
+#introSect {
+    background: $primary;
+    color: #fff;
+    padding: 80px 0;
+}
+
+#formSec {
+    padding: 100px 0;
+    img {
+        max-width: 100%;
+    }
+}
+
+form {
+    background-color: #fff;
+    padding: 50px;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 0 58px #00803725;
+    @media (max-width: 500px) {
+        & {
+            padding: 50px 20px;
+        }
+    }
+    h3 {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    button,
+     ::ng-deep button {
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: $secondary;
+        border-radius: 100px;
+        width: 100%;
+        &:hover {
+            color: #fff;
+        }
+    }
+    button:focus,
+     ::ng-deep button:focus {
+        box-shadow: none;
+    }
+    textarea {
+        height: unset;
+        border-radius: 20px;
+    }
+}

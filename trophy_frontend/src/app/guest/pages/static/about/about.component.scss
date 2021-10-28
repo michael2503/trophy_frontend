@@ -1,0 +1,77 @@
+@import '../../../../../theme/colors.scss';
+#introPart {
+    padding: 81px 0;
+    background-color: $primary;
+    color: #fff;
+    h3 {
+        font-size: 36px;
+        max-width: 628px;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+#whoWeAre {
+    padding: 100px 0;
+    img {
+        max-width: 100%;
+    }
+}
+
+#missionVision {
+    padding: 140px 0;
+    background-color: #f9f9f9;
+    .missionVisionFlex {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 -15px;
+        flex-wrap: wrap;
+    }
+    .eachPart {
+        padding: 40px;
+        border-top: 5px solid $secondary;
+        background: #fff;
+    }
+    .flexItem {
+        padding: 0 15px;
+        max-width: 606px;
+        flex-grow: 1;
+        width: 400px;
+    }
+    @media (max-width: 816px) {
+        .flexItem {
+            max-width: unset;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+#countAnalytics {
+    padding: 104px 0 80px;
+    background-color: $primary;
+    color: #fff;
+    .eachCountCont {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        .iconCont {
+            width: 76px;
+            min-width: 76px;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #fff;
+            margin-right: 28px;
+        }
+        h4 {
+            font-size: 30px;
+            margin: 0;
+            font-weight: bold;
+        }
+        h4+div {
+            font-weight: 500;
+        }
+    }
+}

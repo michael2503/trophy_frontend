@@ -1,0 +1,10 @@
+<section id="callToAction" style="background-image: url(assets/images/linegrey.png);">
+    <div class="bodyCont">
+        <div class="centered">
+            <h3>{{callToAction?.sub_title}}</h3>
+            <p>{{callToAction?.content}}</p>
+            <a *ngIf="!auth" routerLink="/login">Get Started</a>
+            <a *ngIf="auth" routerLink="/user">Dashboard</a>
+        </div>
+    </div>
+</section>

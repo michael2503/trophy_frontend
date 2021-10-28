@@ -1,0 +1,264 @@
+<!-- pre loader -->
+<app-page-loader *ngIf="loading"></app-page-loader>
+<!-- pre loader -->
+
+<!-- header -->
+<app-header></app-header>
+<!-- header -->
+
+<!-- Home banner -->
+<section id="bannerSection" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(assets/images/back.jpg); background-position: bottom;">
+    <div class="bodyCont">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="leftPart">
+                    <h2>{{homeData?.banner?.title}}</h2>
+                    <p>{{homeData?.banner?.contents}}</p>
+                    <div class="actionCont">
+                        <a routerLink="/login">Get Started</a>
+                        <a routerLink="/about-us">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="">
+                    <img src="{{treatImgUrl(homeData?.banner?.image)}}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- About us -->
+<section id="sponsors">
+    <div class="bodyCont">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4">
+                <img src="{{treatImgUrl(homeData?.aboutUs?.banner)}}" alt="">
+            </div>
+
+            <div class="col-xl-8 col-lg-8">
+                <div class="textContent mb-4">
+                    <h4>{{homeData?.aboutUs?.sub_title}}</h4>
+                    <div [innerHTML]="homeData?.aboutUs?.content | safeHtml"></div>
+                    <div class="mt-4">
+                        <img src="assets/images/ref2.jpg" alt="" width="70" class="mr-1">
+                        <img src="assets/images/ref3.jpg" alt="" width="70" class="mr-1">
+                        <img src="assets/images/ref4.jpg" alt="" width="70" class="mr-1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Our top team -->
+<section id="testimonial" style="background-image: url(assets/images/linebg.png);">
+    <div class="bodyCont">
+        <h3 class="text-center text-white mb-5">Our Top Team</h3>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="assets/images/team1.jpg">
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-instagram"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-linkedin"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Williamson</h3>
+                            <span class="post">Goal Keeper</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="assets/images/team2.jpg">
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-instagram"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-linkedin"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">John Doe</h3>
+                            <span class="post">Super Striker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="assets/images/team3.jpg">
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-instagram"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-linkedin"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Wayne Paul</h3>
+                            <span class="post">Winger</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="our-team">
+                        <div class="pic">
+                            <img src="assets/images/team4.jpg">
+                            <ul class="social">
+                                <li>
+                                    <a href="#" class="fa fa-facebook"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-instagram"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="fa fa-linkedin"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Henry Manner</h3>
+                            <span class="post">Mid Fielder</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- List of trophy won -->
+<section id="callToAction" style="background-image: url(assets/images/linegrey.png);">
+    <div class="bodyCont" style="padding: 100px 0px;">
+        <h3 class="text-center text-dark mb-5">Trophy Won</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="trophy-won">
+                        <div class="pic">
+                            <img src="assets/images/trophy1.jpg">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Champions League</h3>
+                            <span class="post">5 Won</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="trophy-won">
+                        <div class="pic">
+                            <img src="assets/images/trophy2.jpg">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Premier League</h3>
+                            <span class="post">8 Won</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="trophy-won">
+                        <div class="pic">
+                            <img src="assets/images/trophy3.jpg">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">Europa League</h3>
+                            <span class="post">2 Won</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="trophy-won">
+                        <div class="pic">
+                            <img src="assets/images/trophy4.jpg">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="title">FA Cup</h3>
+                            <span class="post">7 Won</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Testimonies -->
+<section id="testimonial" style="background-image: url(assets/images/linebg.png);">
+    <h3 class="text-center text-white mb-5">What Our Team Say</h3>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngFor="let testi of homeData?.testimonies let i = index;" class="col-xl-4">
+                <div class="testimonial">
+                    <div class="testimonial-review">
+                        <p>
+                            "{{testi?.testimony}}"
+                        </p>
+                    </div>
+                    <div class="pic">
+                        <img *ngIf="!testi?.photo" src="assets/images/picture.png" alt="">
+                        <img *ngIf="testi?.photo" src="{{testi?.photo}}" alt="">
+
+                        <h4 class="testimonial-title">{{testi?.first_name}} {{testi?.last_name}}
+                            <small>World Best Player</small>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<app-call-to-action-bottom></app-call-to-action-bottom>
+
+<!-- footer -->
+<app-footer></app-footer>
+<!-- footer -->

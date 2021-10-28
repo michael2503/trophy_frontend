@@ -1,0 +1,9 @@
+@import '../../../guest/pages/login/login.component.scss';
+.altAuth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+        margin-right: 8px;
+    }
+}

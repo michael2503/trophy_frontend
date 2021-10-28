@@ -1,0 +1,124 @@
+@import "../../../../../theme/colors.scss";
+.btn-success {
+    color: #fff !important
+}
+
+thead {
+    border-top: 1px solid #ccc;
+}
+
+.role-wrap {
+    background: $primary;
+    ul li.activeLink {
+        padding: 7px 10px;
+        background: #fff;
+        margin: 5px 1px 0px 12px;
+        color: #000 Im !important;
+    }
+    ul li {
+        padding: 7px 10px;
+        margin: 5px 1px 0px 12px;
+        cursor: pointer;
+    }
+    ul li a {
+        color: #fff !important;
+    }
+    ul li a.activeLink {
+        color: #000 !important;
+    }
+    .composeBtn {
+        margin-top: 6px;
+        margin-right: 10px;
+        button {
+            background: #fff !important;
+            color: #000 !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    ul li {
+        padding: 7px 5px !important;
+        margin: 5px 1px 0px 5px !important;
+    }
+    ul li a {
+        font-size: 14px;
+    }
+}
+
+.cardBody {
+    border-radius: 0px;
+    padding: 0px;
+    border-color: $primary;
+    border-bottom: none;
+}
+
+.cardBodySup {
+    border-radius: 0px;
+    border-color: $primary;
+    border-top: none;
+}
+
+#modals {
+    button {
+        margin-top: 30px;
+        width: unset;
+    }
+    form {
+        input::-webkit-outer-spin-button,
+         ::-webkit-inner-spin-button {
+            appearance: none;
+            margin: 0;
+        }
+        .transferInfo {
+            background-color: #f6f6f6;
+            padding: 13px 20px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            p {
+                margin-bottom: 6px;
+            }
+            .accNum {
+                color: $secondary;
+            }
+        }
+    }
+    .successCont {
+        svg {
+            margin-bottom: 39px;
+        }
+        h4 {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 18px;
+        }
+        p {
+            font-size: 14px;
+        }
+    }
+    .modalContent {
+        padding: 40px 0px 0px 0px;
+    }
+    .modalContent .modalHead .closeBtn {
+        padding-right: 30px;
+    }
+    .modalContent .modalHead {
+        padding-bottom: 0px;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 0px;
+    }
+    .successCont {
+        padding: 20px 10px;
+    }
+    .modalContent .modalBody input,
+    .modalContent .modalBody select {
+        height: 40px;
+        min-width: 1px;
+        border: none;
+        border: 1px solid #d3d3d3;
+        padding: 0px 10px;
+    }
+    .modalContent .formBody {
+        min-height: 400px;
+    }
+}

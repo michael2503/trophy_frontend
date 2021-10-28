@@ -1,0 +1,30 @@
+@import '../../../../../theme/colors.scss';
+.activeTab {
+    background: $primary;
+    color: #fff !important;
+    border-radius: 5px;
+}
+
+.tabLink {
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.grid-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 22px;
+}
+
+.icon-col-1 {
+    background: #d3f1f7;
+    color: #4fc6e1;
+    border: 2px solid #4fc6e1;
+}

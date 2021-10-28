@@ -1,0 +1,189 @@
+<app-page-loader *ngIf="loading"></app-page-loader>
+<div id="userPage">
+    <app-user-sidemenu></app-user-sidemenu>
+    <main>
+        <div id="mainCont">
+            <app-user-header [pageTitle]="pageTitle"></app-user-header>
+            <section id="bodyPart">
+                <aside>
+                    <ul>
+                        <li>
+                            <a routerLink="/user/settings/profile-settings" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="activeLink">
+
+                                <div class="curve"></div>
+                                <div class="curve"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="980.000000pt" height="980.000000pt" viewBox="0 0 980.000000 980.000000" preserveAspectRatio="xMidYMid meet">
+
+                                    <g transform="translate(0.000000,980.000000) scale(0.100000,-0.100000)"
+                                        fill="#000000" stroke="none">
+                                        <path
+                                            d="M4310 9542 c-228 -142 -903 -561 -1500 -932 -2039 -1266 -2709 -1687 -2757 -1733 -60 -57 -67 -137 -17 -197 40 -47 61 -54 179 -60 l110 -5 5 -277 c5 -261 6 -278 26 -305 37 -49 105 -76 204 -81 l88 -4 4 -262 c3 -225 6 -265 21 -294 19 -35 76 -77 119 -87 l28 -7 0 -1217 0 -1216 -58 -26 c-45 -20 -62 -33 -75 -62 -26 -54 -36 -161 -37 -378 l0 -196 -107 -5 c-60 -3 -120 -11 -135 -18 -16 -8 -37 -32 -50 -59 -23 -45 -23 -53 -26 -472 l-3 -427 -102 -4 c-127 -5 -178 -28 -201 -92 -21 -59 -28 -327 -20 -758 l7 -368 4887 0 4887 0 6 332 c4 182 7 431 7 553 l0 221 -47 46 c-61 60 -85 68 -193 68 l-89 0 -3 427 c-3 421 -3 429 -26 474 -13 27 -33 51 -49 58 -15 7 -76 15 -134 18 l-107 6 -4 246 c-4 209 -8 254 -24 301 -18 52 -22 57 -81 85 l-63 30 0 1216 0 1217 28 7 c43 10 100 52 119 87 15 29 18 69 21 296 l4 262 67 0 c89 0 164 23 209 65 l37 33 5 284 5 283 110 5 c118 6 139 13 179 60 47 56 43 140 -9 192 -48 48 -1022 658 -3762 2356 l-922 572 -173 0 -173 0 -415 -258z m1025 -297 c670 -409 1266 -778 3170 -1961 l530 -329 -2068 -3 c-1137 -1 -2997 -1 -4134 0 l-2067 3 1005 624 c1527 950 2573 1596 3064 1893 l60 37 55 -32 c30 -17 204 -122 385 -232z m3815 -2800 l0 -155 -4250 0 -4250 0 0 155 0 155 4250 0 4250 0 0 -155z m-7200 -650 l0 -155 -485 0 -485 0 0 155 0 155 485 0 485 0 0 -155z m2132 -97 c3 -247 4 -254 28 -303 21 -42 34 -54 83 -78 l58 -28 -4 -1197 c-2 -658 -7 -1207 -11 -1219 -5 -13 -20 -24 -36 -28 -31 -7 -87 -58 -103 -95 -7 -15 -13 -130 -15 -288 l-4 -263 -888 3 c-489 2 -891 6 -895 10 -4 3 -10 123 -15 265 -4 142 -12 269 -18 283 -12 30 -46 62 -88 83 -24 13 -33 25 -37 54 -3 21 -9 568 -13 1215 l-7 1177 54 24 c82 37 91 51 100 165 4 53 8 181 9 285 l0 187 899 0 899 0 4 -252z m1318 97 l0 -155 -500 0 -500 0 0 155 0 155 500 0 500 0 0 -155z m2120 -32 c1 -104 5 -232 9 -285 9 -114 18 -128 100 -165 l54 -24 -7 -1177 c-3 -647 -9 -1194 -13 -1215 -4 -29 -13 -41 -37 -54 -42 -21 -76 -53 -88 -83 -6 -14 -14 -141 -18 -283 -5 -142 -11 -262 -15 -265 -4 -4 -406 -8 -894 -10 l-888 -4 -5 259 c-6 294 -10 312 -79 362 -23 17 -48 31 -54 31 -7 0 -16 10 -21 23 -4 12 -9 561 -11 1219 l-4 1197 58 28 c49 24 62 36 83 78 24 49 25 56 28 303 l4 252 899 0 899 0 0 -187z m1300 32 l0 -155 -485 0 -485 0 0 155 0 155 485 0 485 0 0 -155z m-7020 -1710 l0 -1215 -325 0 -325 0 0 1215 0 1215 325 0 325 0 0 -1215z m3428 -2 l2 -1213 -330 0 -330 0 0 1208 c0 665 3 1212 7 1215 4 4 151 6 327 5 l321 -3 3 -1212z m3422 2 l0 -1215 -325 0 -325 0 0 1215 0 1215 325 0 325 0 0 -1215z m-6700 -1725 l0 -160 -485 0 -485 0 0 160 0 160 485 0 485 0 0 -160z m3447 63 c-4 -54 -7 -124 -7 -155 l0 -58 -490 0 -490 0 0 63 c0 35 -3 105 -6 155 l-7 92 503 0 503 0 -6 -97z m3423 -63 l0 -160 -485 0 -485 0 0 160 0 160 485 0 485 0 0 -160z m330 -815 l0 -325 -4250 0 -4250 0 0 325 0 325 4250 0 4250 0 0 -325z m320 -980 l0 -325 -4570 0 -4570 0 0 325 0 325 4570 0 4570 0 0 -325z" />
+                                        <path
+                                            d="M4825 9037 c-32 -18 -47 -37 -77 -98 -33 -69 -43 -80 -101 -116 -74 -47 -158 -142 -196 -223 -24 -51 -26 -65 -26 -195 0 -135 1 -142 29 -200 19 -37 57 -87 101 -131 93 -93 186 -141 302 -154 117 -13 166 -44 192 -119 17 -51 14 -84 -12 -122 -34 -50 -82 -79 -134 -79 -82 0 -142 52 -163 142 -26 110 -62 151 -143 167 -56 10 -93 -1 -134 -41 -56 -54 -64 -139 -26 -263 31 -98 118 -203 234 -284 44 -31 57 -46 76 -96 35 -91 58 -109 146 -113 67 -4 76 -2 104 22 19 16 41 50 53 84 26 68 33 78 76 98 50 24 188 174 220 239 33 68 44 207 24 307 -37 194 -218 352 -433 379 -129 17 -186 63 -194 156 -5 64 26 118 87 151 105 55 211 -9 235 -143 10 -56 40 -106 80 -134 76 -51 202 -5 233 85 18 51 2 176 -31 248 -35 76 -121 173 -194 219 -58 36 -68 47 -101 116 -32 66 -43 79 -82 99 -56 28 -94 28 -145 -1z" />
+                                    </g>
+                                </svg>
+                                <span>Profile Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/user/settings/change-password" routerLinkActive="activeLink">
+                                <div class="curve"></div>
+                                <div class="curve"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="225.000000pt" height="225.000000pt" viewBox="0 0 225.000000 225.000000" preserveAspectRatio="xMidYMid meet">
+
+                                    <g transform="translate(0.000000,225.000000) scale(0.100000,-0.100000)"
+                                        fill="#000000" stroke="none">
+                                        <path
+                                            d="M1029 2189 c-101 -84 -148 -115 -243 -160 -116 -54 -248 -87 -401 -100 -167 -14 -172 -15 -187 -42 -22 -37 -18 -661 5 -805 57 -362 177 -600 401 -800 109 -97 293 -203 455 -262 l64 -24 66 24 c193 68 394 194 525 330 214 222 314 476 347 883 14 184 8 622 -9 654 -15 27 -20 28 -187 42 -153 13 -285 46 -401 100 -95 45 -142 76 -243 160 -43 36 -82 61 -96 61 -14 0 -53 -25 -96 -61z m173 -184 c96 -72 202 -127 329 -169 96 -32 275 -66 348 -66 l31 0 0 -260 c0 -291 -9 -406 -46 -560 -51 -216 -140 -376 -286 -515 -94 -91 -164 -140 -287 -201 -155 -77 -155 -78 -251 -38 -281 115 -499 325 -600 577 -77 193 -100 360 -100 726 l0 267 108 12 c138 15 254 45 364 92 93 40 211 110 268 159 19 17 38 30 42 31 4 0 40 -25 80 -55z" />
+                                        <path
+                                            d="M1216 1220 l-201 -199 -91 89 c-80 79 -95 90 -127 90 -27 0 -41 -7 -56 -26 -40 -51 -32 -68 112 -211 111 -111 138 -133 163 -133 25 0 63 34 272 243 198 199 242 248 242 270 0 39 -41 77 -81 77 -29 0 -55 -22 -233 -200z" />
+                                    </g>
+                                </svg>
+                                <span>Change Password</span>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+
+                <div [ngSwitch]="activePage" id="mainContent">
+                    <div *ngSwitchCase="'profile-settings'" class="innerCont">
+                        <h4 class="headTitle">Profile Settings</h4>
+                        <div class="formCont">
+                            <form [formGroup]="profileForm" (ngSubmit)="submitProfile()">
+                                <div class="imgTxtInfo">
+                                    <div class="imgCont">
+                                        <img [src]="treatImgUrl(photoUrl) | safeUrl" alt="{{auth?.username}}">
+                                        <input type="file" name="" hidden id="photo" (change)="selectFile($event, 'photoUrl')">
+                                        <label class="edit" for="photo">
+                                            <i class="fa fa-pencil"></i>
+                                        </label>
+                                    </div>
+                                    <div class="txtCont">
+                                        <h4>{{auth?.first_name}} {{auth?.last_name}}</h4>
+                                        <div>{{auth?.email}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="formGroup">
+                                            <label for="">First Name<span>*</span></label>
+                                            <input type="text" class="form-control" [class.error]="first_name?.touched && first_name?.invalid" formControlName="first_name" placeholder="Enter your first name">
+                                            <div *ngIf="first_name?.touched && first_name?.invalid" class="errDisp">*This field is required!
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6">
+                                        <div class="formGroup">
+                                            <label for="">Last Name<span>*</span></label>
+                                            <input type="text" class="form-control" [class.error]="last_name?.touched && last_name?.invalid" formControlName="last_name" placeholder="Enter your last name">
+                                            <div *ngIf="last_name?.touched && last_name?.invalid" class="errDisp">*This field is required!
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-12">
+                                        <div #emailGroup class="formGroup">
+                                            <label for="">Email<span>*</span></label>
+                                            <input type="text" class="form-control" [class.error]="(email?.touched && (email?.invalid || !validEmail)) || emailErr" formControlName="email" placeholder="Enter your email">
+                                            <div *ngIf="email?.touched && email?.invalid" class="errDisp">*This field is required!
+                                            </div>
+                                            <div *ngIf="email?.touched && email?.valid && !validEmail" class="errDisp">*Enter a valid email!
+                                            </div>
+                                            <div *ngIf="emailErr" class="errDisp">*{{emailErr}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6">
+                                        <div #usernameGroup class="formGroup">
+                                            <label for="">Username<span>*</span></label>
+                                            <input type="text" class="form-control" [class.error]="(username?.touched && username?.invalid) || usernameErr" formControlName="username" placeholder="Enter your email">
+                                            <div *ngIf="username?.touched && username?.invalid" class="errDisp">*This field is required!
+                                            </div>
+                                            <div *ngIf="usernameErr" class="errDisp">*{{usernameErr}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6">
+                                        <div #phoneGroup class="formGroup">
+                                            <label for="">Mobile<span>*</span></label>
+                                            <input type="text" class="form-control" [class.error]="(phone?.touched && phone?.invalid) || phoneErr" appAllowNum formControlName="phone" placeholder="Enter your phone number">
+                                            <div *ngIf="phone?.touched && phone?.invalid" class="errDisp">*This field is required!
+                                            </div>
+                                            <div *ngIf="phoneErr" class="errDisp">*{{phoneErr}}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-12">
+                                        <div class="formGroup">
+                                            <label for="">Address<span>*</span></label>
+                                            <input type="text" [class.error]="address?.touched && address?.invalid" class="form-control" formControlName="address" placeholder="Enter your address">
+                                            <div *ngIf="address?.touched && address?.invalid" class="errDisp">*This field is required!
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6">
+                                        <div class="formGroup">
+                                            <label for="">State<span>*</span></label>
+                                            <input type="text" [class.error]="state?.touched && state?.invalid" class="form-control" formControlName="state" placeholder="Enter your state">
+                                            <div *ngIf="state?.touched && state?.invalid" class="errDisp">*This field is required!
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6">
+                                        <div class="formGroup">
+                                            <label for="">Country<span>*</span></label>
+                                            <input type="text" [class.error]="country?.touched && country?.invalid" class="form-control" formControlName="country" placeholder="Enter your country">
+                                            <div *ngIf="country?.touched && country?.invalid" class="errDisp">*This field is required!
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <button *ngIf="!submitting" class="btn" [disabled]="profileForm?.invalid || password?.value != confirm_password?.value">Save
+                                    Changes</button>
+                                <app-loading-btn *ngIf="submitting" clss="btn"></app-loading-btn>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div *ngSwitchCase="'change-password'" class="innerCont">
+                        <h4 class="headTitle">Change Password</h4>
+                        <div class="formCont">
+                            <form [formGroup]="passForm" (ngSubmit)="submitPass()">
+                                <div #currPassGroup class="formGroup">
+                                    <label for="">Current Password<span>*</span></label>
+                                    <input type="password" [class.error]="(old_password?.touched && old_password?.invalid) || passErr" class="form-control" formControlName="old_password" placeholder="Enter your current password">
+                                    <div *ngIf="old_password?.touched && old_password?.invalid" class="errDisp">*This field is required!</div>
+                                    <div *ngIf="passErr" class="errDisp">*{{passErr}}</div>
+                                </div>
+                                <div class="formGroup">
+                                    <label for="">New Password<span>*</span></label>
+                                    <input type="password" [class.error]="password?.touched && password?.invalid" class="form-control" formControlName="password" placeholder="Enter your new password">
+                                    <div *ngIf="password?.touched && password?.invalid" class="errDisp">*This field is required!
+                                    </div>
+                                </div>
+                                <div class="formGroup">
+                                    <label for="">Password Confirmation<span>*</span></label>
+                                    <input type="password" class="form-control" formControlName="confirm_password" placeholder="Confirm Password">
+                                    <div *ngIf="confirm_password?.touched && confirm_password?.invalid" class="errDisp">
+                                        *This field is required!
+                                    </div>
+                                    <div *ngIf="confirm_password?.touched && confirm_password?.valid && password?.value != confirm_password?.value" class="errDisp">*PIN mismatched!</div>
+                                </div>
+                                <button *ngIf="!submitting" class="btn" [disabled]="passForm?.invalid || password?.value != confirm_password?.value">Save
+                                    Changes</button>
+                                <app-loading-btn *ngIf="submitting" clss="btn"></app-loading-btn>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>

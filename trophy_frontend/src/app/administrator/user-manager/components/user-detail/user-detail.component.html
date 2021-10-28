@@ -1,0 +1,177 @@
+<input type="checkbox" id="drawer-toggle" name="drawer-toggle" />
+<label for="drawer-toggle" id="drawer-toggle-label"></label>
+<header class="admin-header">
+    <app-admin-header></app-admin-header>
+</header>
+
+<nav id="drawer">
+    <app-admin-nav-content></app-admin-nav-content>
+</nav>
+
+<div id="pageContents">
+
+    <div id="adminWrapper">
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item">
+                                        <a routerLink="/{{adminUrl}}">
+											Dashboard
+										</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a routerLink="/{{adminUrl}}/user-manager">
+											Users List
+										</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">
+                                        {{user && user.first_name + ' ' + user.last_name}}
+                                    </li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">
+                                {{user && user.first_name + ' ' + user.last_name | uppercase}}
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="user-det">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4">
+                            <app-user-info-share [customer]="user"></app-user-info-share>
+                        </div>
+
+                        <div class="col-xl-8 col-lg-8">
+                            <div class="user-content-wrapper">
+
+                                <div *ngIf="theActiveTabl == 'profile'" class="profile">
+                                    <div class="card card-body">
+                                        <h4>Profile</h4>
+
+                                        <div class="formWrapp">
+                                            <form [formGroup]="profileForm" (ngSubmit)="submitProfile()">
+                                                <div class="row">
+                                                    <div class="col-xl-6">
+                                                        <div class="form-group">
+                                                            <label>First Name</label>
+                                                            <input type="text" class="form-control" formControlName="first_name">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="form-group">
+                                                            <label>Last Name</label>
+                                                            <input type="text" class="form-control" formControlName="last_name">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="form-group">
+                                                            <label>Email</label>
+                                                            <input type="text" class="form-control" formControlName="email">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="form-group">
+                                                            <label>Username</label>
+                                                            <input type="text" class="form-control" formControlName="username">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="form-group">
+                                                            <label>Phone</label>
+                                                            <input type="text" class="form-control" formControlName="phone">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="form-group">
+                                                            <label>Address</label>
+                                                            <input type="text" class="form-control" formControlName="address">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-xl-6">
+                                                        <div class="form-group">
+                                                            <label>State</label>
+                                                            <input type="text" class="form-control" formControlName="state">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="form-group">
+                                                            <label>Country</label>
+                                                            <input type="text" class="form-control" formControlName="country">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-xl-6">
+                                                        <div class="card">
+                                                            <div class="card-header">
+                                                                Profile Photo
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div class="alert alert-danger mt-2" *ngIf="fileUploadError">
+                                                                    {{fileUploadError}}
+                                                                </div>
+                                                                <div class="adminUpload">
+                                                                    <div class="uploadWrapper text-center mb-4" style="position: relative;">
+                                                                        <div *ngIf="theUploaded" class="deleteImg" (click)="removeUploadImg()">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </div>
+                                                                        <label *ngIf="removeLabel" class="uploadLabel" for="uploadFile">
+                                                                            <i class="fa fa-upload uploadIcon"></i>
+                                                                            <p>Click here to upload file</p>
+                                                                        </label>
+                                                                        <input type="text" formControlName="photo" hidden>
+                                                                        <input type="file" hidden class="form-control mt-4" id="uploadFile" name="uploadFile" (change)="onSelectedFile($event)">
+
+                                                                        <div *ngIf="uploadingProgress > 0" class="progress uploadProgress" style="margin-bottom: 10px;">
+                                                                            <span class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"> 
+                                                                                Uploading...{{ uploadingProgress }}%
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <img *ngIf="theUploaded" src="{{theUploaded}}" class="uploaded">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="text-center mt-4">
+                                                    <button *ngIf="!isUpdatingProfile" class="btn btn-primary" type="submit">Update Profile</button>
+                                                    <button *ngIf="isUpdatingProfile" class="btn btn-primary" type="button">Updating <i class="fa fa-spinner fa-spin"></i></button>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+
+    <app-admin-footer></app-admin-footer>
+
+</div>

@@ -1,0 +1,181 @@
+<div class="authPage" style="background-image: url(assets/images/authlinebg.png);">
+    <a class="logo" routerLink="/">
+        <img *ngIf="logoUrl" src="{{treatImgUrl(logoUrl)}}" alt="">
+        <img *ngIf="!logoUrl" src="assets/images/logo.svg" alt="">
+    </a>
+    <div class="centeredCont">
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="formGroup">
+                        <label for="">First Name<span>*</span></label>
+                        <input type="text" class="form-control" [class.error]="first_name?.touched && first_name?.invalid" formControlName="first_name" placeholder="Enter your first name">
+                        <div *ngIf="first_name?.touched && first_name?.invalid" class="errDisp">*This field is required!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-lg-6">
+                    <div class="formGroup">
+                        <label for="">Last Name<span>*</span></label>
+                        <input type="text" class="form-control" [class.error]="last_name?.touched && last_name?.invalid" formControlName="last_name" placeholder="Enter your Last name">
+                        <div *ngIf="last_name?.touched && last_name?.invalid" class="errDisp">*This field is required!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6">
+                    <div #phoneGroup class="formGroup">
+                        <label for="">Phone<span>*</span></label>
+                        <input type="text" class="form-control" [class.error]="(phone?.touched && phone?.invalid) || phoneErr" formControlName="phone" placeholder="Enter your Last name">
+                        <div *ngIf="phone?.touched && phone?.invalid" class="errDisp">*This field is required!
+                        </div>
+                        <div *ngIf="phoneErr" class="errDisp">*{{phoneErr}}</div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6">
+                    <div #usernameGroup class="formGroup">
+                        <label for="">Username<span>*</span></label>
+                        <input type="text" class="form-control" [class.error]="(username?.touched && username?.invalid) || usernameErr" formControlName="username" placeholder="Enter your Last name">
+                        <div *ngIf="username?.touched && username?.invalid" class="errDisp">*This field is required!
+                        </div>
+                        <div *ngIf="usernameErr" class="errDisp">*{{usernameErr}}</div>
+                    </div>
+                </div>
+
+                <div class="col-xl-12">
+                    <div #emailGroup class="formGroup">
+                        <label for="">Email<span>*</span></label>
+                        <input type="email" class="form-control" [class.error]="(email?.touched && email?.invalid) || emailErr" formControlName="email" placeholder="Enter your Last name">
+                        <div *ngIf="email?.touched && email?.errors?.required" class="errDisp">*This field is required!
+                        </div>
+                        <div *ngIf="email?.touched && email?.errors?.pattern" class="errDisp">*Enter a valid email!
+                        </div>
+                        <div *ngIf="emailErr" class="errDisp">*{{emailErr}}</div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-lg-6">
+                    <div class="formGroup">
+                        <label for="">Password<span>*</span></label>
+                        <input type="password" [class.error]="password?.touched && password?.invalid" class="form-control" formControlName="password" placeholder="Enter at least 6 Digit password">
+                        <div *ngIf="password?.touched && password?.invalid" class="errDisp">*This field is required!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-lg-6">
+                    <div class="formGroup">
+                        <label for="">Confirm Password<span>*</span></label>
+                        <input type="password" class="form-control" formControlName="confirm_password" placeholder="Confirm password">
+                        <div *ngIf="confirm_password?.touched && confirm_password?.invalid" class="errDisp">*This field is required!
+                        </div>
+                        <div *ngIf="confirm_password?.touched && confirm_password?.valid && password?.value != confirm_password?.value" class="errDisp">*PIN mismatched!</div>
+                    </div>
+                </div>
+
+                <div class="col-xl-12">
+                    <div class="formGroup">
+                        <label for="">Select Interest<span>*</span></label>
+                        <ul class="list-inline interestList">
+                            <li class="list-inline-item dataa mb-3">
+                                <div class="custom-control custom-checkbox" id="FootballWrap">
+                                    <input type="checkbox" (change)="selectInterest('Football')" id="football" class="custom-control-input">
+                                    <label class="custom-control-label mb-0" id="football_label" for="football">Football</label>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dataa mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" (change)="selectInterest('Basketball')" id="basketball" class="custom-control-input">
+                                    <label class="custom-control-label mb-0" id="basketball_label" for="basketball">Basketball</label>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dataa mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" (change)="selectInterest('Volleyball')" id="volleyball" class="custom-control-input">
+                                    <label class="custom-control-label mb-0" id="volleyball_label" for="volleyball">Volleyball</label>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dataa mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" (change)="selectInterest('Table Tennis')" id="tableTennis" class="custom-control-input">
+                                    <label class="custom-control-label mb-0" id="tableTennis_label" for="tableTennis">Table Tennis</label>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dataa mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" (change)="selectInterest('Ice Hockey')" id="iceHockey" class="custom-control-input">
+                                    <label class="custom-control-label mb-0" id="iceHockey_label" for="iceHockey">Ice Hockey</label>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dataa mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" (change)="selectInterest('Motorsport')" id="motorsport" class="custom-control-input">
+                                    <label class="custom-control-label mb-0" id="motorsport_label" for="motorsport">Motorsport</label>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dataa mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" (change)="selectInterest('Bandy')" id="bandy" class="custom-control-input">
+                                    <label class="custom-control-label mb-0" id="bandy_label" for="bandy">Motorsport</label>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dataa mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" (change)="selectInterest('Rugby')" id="rugby" class="custom-control-input">
+                                    <label class="custom-control-label mb-0" id="rugby_label" for="rugby">Rugby</label>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dataa mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" (change)="selectInterest('Skiing')" id="skiing" class="custom-control-input">
+                                    <label class="custom-control-label mb-0" id="skiing_label" for="skiing">Skiing</label>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dataa mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" (change)="selectInterest('Shooting')" id="shooting" class="custom-control-input">
+                                    <label class="custom-control-label mb-0" id="shooting_label" for="shooting">Shooting</label>
+                                </div>
+                            </li>
+
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="rememberMe">
+                <input type="checkbox" [checked]="agree?.value" (change)="agreeCheck($event.target)" id="agree" hidden>
+                <label for="agree">
+                    <div class="cusCheck">
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <span>*I agree to the Trophy <a routerLink="/pages/terms-and-conditions">Terms &
+                            Conditions</a> and have read through the <a routerLink="/pages/privacy-policy">Privacy Policy</a>.</span>
+                </label>
+            </div>
+            <button *ngIf="!submitting" class="btn" [disabled]="form?.invalid">Create Account</button>
+            <app-loading-btn *ngIf="submitting" clss="btn"></app-loading-btn>
+
+            <div class="altAuth">Already have an account? <a routerLink="/login">Login</a></div>
+
+        </form>
+
+    </div>
+
+
+    <div class="copyright">Copyright © {{curYear}} Trophy Team. All right reserved </div>
+</div>

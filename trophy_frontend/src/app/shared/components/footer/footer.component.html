@@ -1,0 +1,61 @@
+<footer>
+    <div class="bodyCont">
+        <div class="topPart">
+            <div class="row">
+                <div class="col-lg-4">
+                    <a class="logo" routerLink="/">
+                        <img src="{{treatImgUrl(settings?.websiteSettings?.logo_url)}}" alt="" class="logoImg">
+                    </a>
+                    <p>{{settings?.websiteSettings?.site_description}}</p>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="eachLinkCont">
+                                <h4>Quick Menu</h4>
+                                <div class="linkCont">
+                                    <a routerLink="/about-us">About Us</a>
+                                    <a routerLink="/testimonial">Testimony</a>
+                                    <a routerLink="/contact-us">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="eachLinkCont">
+                                <h4>Others</h4>
+                                <div class="linkCont">
+                                    <a routerLink="/pages/terms-and-conditions">Terms of Services</a>
+                                    <a routerLink="/pages/privacy-policy">Privacy Policy</a>
+                                    <a routerLink="/faqs">FAQs</a>
+                                    <!-- <a routerLink="/how-it-works">Help</a> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="eachLinkCont">
+                                <h4>Contact</h4>
+                                <div class="linkCont">
+                                    <div class="keyVal">
+                                        <span>Email:</span>
+                                        <a href="mailto:{{settings?.websiteSettings?.site_email}}">{{settings?.websiteSettings?.site_email}}</a>
+                                    </div>
+                                    <div class="keyVal">
+                                        <span>Phone:</span>
+                                        <a href="tel:{{settings?.websiteSettings?.biz_phone}}">{{settings?.websiteSettings?.biz_phone}}</a>
+                                    </div>
+                                    <h6>WORKING HOURS</h6>
+                                    <p class="mb-1">Monday - Friday</p>
+                                    <p>9am - 3pm</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomPart">
+            Copyright © {{settings?.websiteSettings?.site_name}} Investment {{currYear}}.
+            <!-- Designed by <a class="secCol" target="_blank" href="https://creativeweb.com.ng">CreativeWeb</a> -->
+        </div>
+    </div>
+</footer>

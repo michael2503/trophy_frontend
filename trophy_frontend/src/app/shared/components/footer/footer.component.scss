@@ -1,0 +1,44 @@
+@import '../../../../theme/colors.scss';
+footer {
+    padding: 95px 0 57px;
+}
+
+.logo {
+    margin-bottom: 32px;
+    display: flex;
+}
+
+p {
+    max-width: 252px;
+}
+
+.eachLinkCont {
+    h4 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 21px;
+    }
+    .linkCont {
+        display: flex;
+        flex-direction: column;
+        .keyVal {
+            display: flex;
+            span,
+            i {
+                margin-right: 10px;
+            }
+        }
+        a {
+            color: #494949;
+            margin-bottom: 10px;
+        }
+        a:hover {
+            color: $secondary;
+        }
+    }
+}
+
+.bottomPart {
+    margin-top: 80px;
+    text-align: center;
+}

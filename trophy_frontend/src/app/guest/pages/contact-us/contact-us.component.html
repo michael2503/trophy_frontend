@@ -1,0 +1,55 @@
+<!-- Header -->
+<app-header></app-header>
+<!-- Header -->
+
+<!-- Breadcrum -->
+<section id="introSect" style="background-image: url(assets/images/linebg.png);">
+    <div class="bodyCont text-center">
+        <h3>Contact Us</h3>
+        <p>Please fill the form below to send us your request</p>
+    </div>
+</section>
+<!-- Breadcrum -->
+
+
+<section id="formSec">
+    <div class="bodyCont">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="imgCont">
+                    <img src="assets/images/contact-us-img.png" alt="">
+                </div>
+            </div>
+            <div *ngIf="true" class="col-md-6">
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                    <h3>Send us a message</h3>
+                    <div class="formGroup">
+                        <label for="">Full Name</label>
+                        <input type="text" formControlName="full_name" [class.error]="full_name?.touched && full_name?.invalid" class="form-control" placeholder="Enter you full name">
+                        <div *ngIf="full_name?.touched && full_name?.invalid" class="errDisp">*This field is required
+                        </div>
+                    </div>
+                    <div class="formGroup">
+                        <label for="">Email</label>
+                        <input type="text" formControlName="email" [class.error]="email?.touched && (email?.invalid || !validEmail)" class="form-control" placeholder="Enter your email">
+                        <div *ngIf="email?.touched && email?.invalid" class="errDisp">*This field is required</div>
+                        <div *ngIf="email?.touched && email?.valid && !validEmail" class="errDisp">*Enter a valid email
+                        </div>
+                    </div>
+                    <div class="formGroup">
+                        <label for="">How we can help</label>
+                        <textarea formControlName="message" rows="5" [class.error]="message?.touched && message?.invalid" class="form-control" placeholder="Enter your message here"></textarea>
+                        <div *ngIf="message?.touched && message?.invalid" class="errDisp">*This field is required</div>
+                    </div>
+                    <button *ngIf="!submitting" class="btn" [disabled]="form?.invalid">Submit</button>
+                    <app-loading-btn *ngIf="submitting" clss="btn"></app-loading-btn>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<app-footer></app-footer>
+<!-- Footer -->

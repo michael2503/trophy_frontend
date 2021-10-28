@@ -1,0 +1,23 @@
+<app-page-loader *ngIf="loading"></app-page-loader>
+<div id="userPage">
+    <app-user-sidemenu></app-user-sidemenu>
+    <main>
+        <div id="mainCont">
+            <app-user-header></app-user-header>
+            <section id="bodyPart">
+                <div id="testimony">
+                    <form [formGroup]="form" (ngSubmit)="submit()">
+                        <div class="formGroup">
+                            <label for="">Testimony</label>
+                            <textarea id="" cols="30" formControlName="testimony" [class.error]="testimony?.touched && testimony?.invalid" class="form-control" rows="10" placeholder="Enter your testimony here"></textarea>
+                            <div *ngIf="testimony?.touched && testimony?.invalid" class="errDisp">*This field is required
+                            </div>
+                        </div>
+                        <button *ngIf="!submitting" class="btn" [disabled]="form?.invalid">Submit</button>
+                        <app-loading-btn *ngIf="submitting" clss="btn"></app-loading-btn>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
